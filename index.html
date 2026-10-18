@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Nexa AI — your personal AI assistant.">
+  <title>Nexa AI</title>
+
+  <link rel="icon" href="https://images.icon-icons.com/2550/PNG/512/chip_icon_152664.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app">
+
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <img
+          src="https://images.icon-icons.com/2550/PNG/512/chip_icon_152664.png"
+          alt="Nexa AI chip"
+          class="brand-icon"
+        >
+        <span>Nexa AI</span>
+      </div>
+
+      <button id="new-chat" class="new-chat">
+        <span>＋</span> New chat
+      </button>
+
+      <div class="sidebar-heading">YOUR CHATS</div>
+      <nav id="chat-history" class="chat-history"></nav>
+
+      <div class="sidebar-bottom">
+        <button id="theme-toggle" class="sidebar-button">
+          ◐ Appearance
+        </button>
+        <button id="settings-button" class="sidebar-button">
+          ⚙ Settings
+        </button>
+        <div class="model-label">
+          <span class="status-dot"></span>
+          <span id="model-status">Offline fallback ready</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button
+          id="menu-toggle"
+          class="icon-button"
+          aria-label="Toggle sidebar"
+        >☰</button>
+
+        <div class="topbar-title">Nexa <span>AI</span></div>
+
+        <button
+          id="install-button"
+          class="install-button"
+          hidden
+        >Install app</button>
+      </header>
+
+      <section id="messages" class="messages" aria-live="polite">
+        <div id="welcome" class="welcome">
+          <img
+            src="https://images.icon-icons.com/2550/PNG/512/chip_icon_152664.png"
+            alt=""
+            class="welcome-icon"
+          >
+
+          <h1>What can I help with?</h1>
+          <p>Your ideas start here.</p>
+
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Explain something interesting about space">
+              <span>✦</span>
+              <strong>Explore an idea</strong>
+              <small>Discover something new</small>
+            </button>
+
+            <button class="suggestion" data-prompt="Help me write a simple JavaScript program">
+              <span>⌘</span>
+              <strong>Write some code</strong>
+              <small>Build something useful</small>
+            </button>
+
+            <button class="suggestion" data-prompt="Give me a creative project idea">
+              <span>✧</span>
+              <strong>Get creative</strong>
+              <small>Turn an idea into a project</small>
+            </button>
+
+            <button class="suggestion" data-prompt="Help me understand a difficult topic">
+              <span>◎</span>
+              <strong>Learn something</strong>
+              <small>Break it down step by step</small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="composer-area">
+        <form id="chat-form" class="composer">
+          <textarea
+            id="message-input"
+            rows="1"
+            maxlength="12000"
+            placeholder="Message Nexa AI..."
+            aria-label="Your message"
+            required
+          ></textarea>
+
+          <button id="send-button" type="submit" aria-label="Send message">
+            ↑
+          </button>
+        </form>
+
+        <p class="disclaimer">
+          Nexa AI can make mistakes. Check important information.
+        </p>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="settings-dialog">
+    <div class="dialog-header">
+      <h2>Settings</h2>
+      <button id="close-settings" class="icon-button" aria-label="Close settings">✕</button>
+    </div>
+
+    <label for="model-endpoint">Model endpoint URL</label>
+    <input
+      id="model-endpoint"
+      type="url"
+      placeholder="https://your-compatible-endpoint"
+    >
+
+    <p class="settings-help">
+      Connect a compatible Gemma inference endpoint. Keep secret API keys
+      on a secure backend rather than putting them in this page.
+    </p>
+
+    <button id="save-settings" class="save-button">Save settings</button>
+  </dialog>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
